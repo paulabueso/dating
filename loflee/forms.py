@@ -7,7 +7,7 @@ __author__ = 'paulabueso'
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
-        model = User
+        model = Use
         fields = ("username", "email", "age", "gender", "paid", "profile_image", "location", "password1", "password2")
 
     def clean_username(self):
