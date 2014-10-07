@@ -1,0 +1,18 @@
+{% extends 'base_template.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+    {% for user in userdata %}
+        <div class="view_people">
+            <p class="name"><a href="{% url 'seeprofile' user.id %}" >{{ user.username }} </a></p>
+
+            <div class="picture">
+                <img src="{{ media_root }}{{ user.profile_image}}" height="200" width="200"/>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base_template.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<hr>
+    <div class="info">
+        <img src="{{ media_root }}{{ viewed_user.profile_image}}" height="200" width="200" />
+
+        {% if item.picture  %}
+            <img src="{{ viewed_user.profile_image.url }}" height="50"  />
+        {% endif %}
+
+        <ul>
+            <li>username: {{viewed_user.username}}</li>
+            <li>gender: {{ viewed_user.gender }}</li>
+            <li>age: {{ viewed_user.age }}</li>
+            <li>email: {{ viewed_user.email }}</li>
+            <li>last logged in: {{viewed_user.last_login  }}</li>
+        </ul>
+    </div>
+
+    <li><a href="{% url 'seeprofiles' %}">See profiles</a></li>
+
+    {% if viewed_user.id != current_user.id %}
+    <a href="{% url "chat" current_user.id viewed_user.id %}">chat with {{ viewed_user.username }}</a>
+
+    {% else %}
+    {% endif %}
+
+
+{% endblock content %}
+
+
+
+
+
+
+

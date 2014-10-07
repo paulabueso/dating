@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles%}
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "css/chat.css" %}"/>
+    <script type="text/javascript" src="http//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+    <title>Chat</title>
+
+    <script type = text/javascript>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var message = $("textarea").val();
+                var old = $("#content").html()
+
+                $("content").html(old+'<p>' + message + '</p>');
+            })
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Lets chat</h1>
+    <div id = "content" >
+        <p>Here's our chat data</p>
+    </div>
+
+    <div id=message">
+        <textarea name="chat" id="textarea" cols="30" rows="2">Leave a comment
+        </textarea>
+        <button>post!</button>
+    </div>
+<h1>{{ sender }}</h1>
+<h1>{{ receiver }} </h1>
+
+</body>
+</html>
